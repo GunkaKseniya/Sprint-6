@@ -1,27 +1,43 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import page.object.OrderPage;
+
+import java.time.Duration;
 import java.util.stream.Stream;
 
-import static page.object.MainPage.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static page.object.OrderPage.orderIsProcessed;
+import static page.object.MainPage.*;
+import static page.object.OrderPage.*;
 
-public class PositiveTestScooterOrderFirefox {
+public class PositiveTestScooterOrder {
     private WebDriver driver;
+
     @BeforeEach
-    public void setUp() {
-        driver = new FirefoxDriver();
-        driver.get(MAIN_PAGE_URL);
+    public void setUpChrome() {
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
+
+//запуск в браузере Firefox
+//        @BeforeEach
+//    public void setUpFirefox() {
+//        WebDriverManager.firefoxdriver().setup();
+//        driver = new FirefoxDriver();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//    }
+
     @ParameterizedTest
     @MethodSource("orderParam")
     void topButtonPositiveOrder(String username, String surname, String address, String metro, String telephone, String date, String comment) {
+        driver.get(MAIN_PAGE_URL);
         OrderPage orderPage = new OrderPage(driver);
         orderPage.clickSignInTopButton();
         orderPage.setUsernameField(username);
@@ -53,6 +69,7 @@ public class PositiveTestScooterOrderFirefox {
     @ParameterizedTest
     @MethodSource("orderParam")
     void bottomButtonPositiveOrder(String username, String surname, String address, String metro, String telephone, String date, String comment) {
+        driver.get(MAIN_PAGE_URL);
         OrderPage orderPage = new OrderPage(driver);
         orderPage.clickAppCookieButton();
         orderPage.clickSignInButtonBottom();

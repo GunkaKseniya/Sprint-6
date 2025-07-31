@@ -38,4 +38,28 @@ public class MainPage {
     //локатор кнопки "Go!"
     static By goButton = By.xpath(".//button[text()='Go!']");
 
+    // Локаторы для блока "Вопросы о важном"
+    public static By question1 = By.xpath("//*[@id=\"accordion__heading-0\"]");
+    public static By answer1 = By.xpath("//*[@id=\"accordion__panel-0\"]");
+
+    public static By question2 = By.xpath("//*[@id=\"accordion__heading-1\"]");
+    public static By answer2 = By.xpath("//*[@id=\"accordion__panel-1\"]");
+
+    public static By question3 = By.xpath("//*[@id=\"accordion__heading-2\"]");
+    public static By answer3 = By.xpath("//*[@id=\"accordion__panel-2\"]");
+
+    public static By question4 = By.xpath("//*[@id=\"accordion__heading-3\"]");
+    public static By answer4 = By.xpath("//*[@id=\"accordion__panel-3\"]");
+
+    public static By question5 = By.xpath("//*[@id=\"accordion__heading-4\"]");
+    public static By answer5 = By.xpath("//*[@id=\"accordion__panel-4\"]");
+
+    public static By question6 = By.xpath("//*[@id=\"accordion__heading-5\"]");
+    public static By answer6 = By.xpath("//*[@id=\"accordion__panel-5\"]");
+
+    public static By question7 = By.xpath("//*[@id=\"accordion__heading-6\"]");
+    public static By answer7 = By.xpath("//*[@id=\"accordion__panel-6\"]");
+
+    public static By question8 = By.xpath("//*[@id=\"accordion__heading-7\"]");
+    public static By answer8 = By.xpath("//*[@id=\"accordion__panel-7\"]");
 }
